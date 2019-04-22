@@ -1,0 +1,258 @@
+primitive data types
+
+int, float, double, byte
+
+Wrapper Classes
+
+int - Integer
+float - Float
+double - Double
+byte - Byte
+long - Long
+char - Character - only one char 'a', '0', '-'
+
+	10, 	"10", 		"ten"
+	
+	
+	Object Creation
+	- two types of constructors
+	
+	Parsing
+	- use parseXXX()
+	- to convert string to primitive type
+	
+	
+	int
+	Integer
+	
+	Best Practice
+	
+	Class
+	- It should starts with Capital letter (Test, Demo, CoreJava)
+	
+	Methods
+	- Starts with small letter, next word will have capital
+	- sum(), add(), display(), addMatrix(), primeNumber(), 
+	
+	Variables
+	- always starts with the small letters
+	
+	Static variable
+	- all letters should be in capital
+	
+	
+Exceptions
+--------------
+ It is a unexpected event that occurs during the execution of the program 
+ that disturbs normal flow of the program execution.
+ 
+ If you are not handling the exception, system terminate the program
+ If an exception occurs, then it terminates the program, rest of the program will not
+ get executed.
+ 
+ 
+ Types of exception
+ - Checked Exceptions
+ - UnChecked Exceptions
+ 
+ Checked Exceptions
+ - Generally this kind of exceptions will be checked by the compiler during the
+ compile time of the program
+ - IOException
+ - FileNotFoundException
+ - SQLException
+ 
+ Throwable - interface
+ Exception - class
+ RuntimeException - class
+ 
+ 
+ Two ways to handle the Exception
+ 
+ - Using try - catch block
+ - Using throws keyword
+ 
+ Try-Catch
+ - this helps to handle the exception
+ - try block will contain the code snippet which may throw the exceptions
+ - try{
+		//write the code here
+		int i = 10/0;
+		}
+ Catch Block
+ - This handles the exception
+ - Gives a alternate way to execute the rest of program in an exception occured
+ - this avoids the ubnormal termination
+ - catch block always followed by try block
+	 try{
+		//code here
+	 }
+	 catch(Exception){
+		//handle the exception
+	 }
+ 
+ Scenario 1:
+ 
+ line 1
+ line 2
+ line 3
+ int i = 10 / 0;
+ line 4
+ line 5
+ 
+ Output: 	line 1,2,3 will execute
+			Exception will be thrown
+			program terminated (4 & 5 are not executed)
+ 
+ 
+	Scenario 2: 
+	//start
+	try{
+		line 1
+		line 2
+		line 3
+		exception
+		line 4
+	}
+	catch(Exception){
+		handle the exception
+	}
+	line 5
+	line 6
+	//end of program
+	
+	Output :: line 1, 2, 3 will execute
+				Exception will be thrown
+				Handles the exception
+				line 4 will NOT execute
+				line 5 & 6 WILL execute
+				Program will be terminated normally
+
+UnCheckedException
+- These exceptions will not be handled at compile time
+- These exceptions will be thrown at run time
+
+Throwable - Exception - RuntimeException - NumberFormatException
+											AirthmeticException
+											ArrayIndexOutOfBoundException
+											NullPointerException
+											ClassCastException
+											
+											
+Handle Multiple Exception
+
+try{
+	line 1
+	exception code 1
+	line 2
+	exception code 2
+}
+catch(NumberFormatException e1)
+{
+	handle the exception 1
+}
+catch(ArithmeticException e2)
+{
+	handle the exception 2
+}
+....
+catch(Exception en)
+{
+
+}
+											
+ - for any try block minimum one catch block should be there
+ - may be more than one catch block can be defined
+ - multiple catch block are possible
+	
+	
+NullPointer Exception
+ - In an object which is not initialized, trying to access the functions or data 
+	members will throw the NullPointerException
+
+
+finally - keyword
+ - This is used to release the local resources
+ - Closing the database connectivity
+ - Close the file IO streams
+ - This block will execute even the exception occurs
+ - Always this block will get executed
+ - this finally block will follows the catch blocks
+ - Finally is not mandatory, its a optional block
+ 
+	
+	try {
+		//code here
+	}
+	catch(){
+		//handle the exception
+	}
+	finally{
+		//release the local resources
+	}
+	
+	
+	
+call trace
+ - main() -- calc.div()
+ 
+throws
+ - it is a keyword
+ - it redirects the control to caller method or catch block
+
+throw
+ - this is used to generate the exception
+
+
+Keywords
+
+Throwable - interface (parent)
+Exception - class (parent class for all exceptions)
+try - it is the block which contains the code snippets which may throw the exceptions
+catch - handling the exception
+finally - to release the local resoreces
+throws - to redirect the control or exception to the caller method
+throw - to generate the exception
+
+
+User Defined Exception
+ - Any class subclass of Exception is called user defined exception
+ - These are Checked exceptions, because you are extending Exception not a RuntimeException
+ - Extend Exception
+ 
+ - create a constructor with one string arg
+ - call super constructor with the same arg
+ 
+Student Application
+ - Student.java (id, name)
+ - StudentDb.java (list of students, getStudent())
+ - StudentMain.java (main(), will get the one student record)
+ - StudentNotFoundException.java
+
+Errors
+
+- When your program disturbs the system resources, it may throw error
+- errors can not be  handled by the program
+
+OutOfMemorryError
+StackOverflowError
+
+Heap and Stack
+
+Heap - Objects, dynamic arrays, Static variables, static methods
+Stack - call stack, local variables
+
+	public int fact(int n)
+	{
+		if(n==1)
+			return 1;
+		
+		return n * fact(n-1);
+	}
+
+	fact( 5 );
+
+
+
+
+

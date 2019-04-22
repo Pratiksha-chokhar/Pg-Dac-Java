@@ -1,0 +1,72 @@
+			File I/O
+			
+ Stream
+  - Stream is sequence of data
+
+ Byte based streams
+ Character based streams
+ 
+ - Handle input and output with bytes - Byte based streams
+ - Handle input and output with character - character based streams
+ 
+ java.util
+ java.io
+ 
+ Stream based
+ - InputStream and OutputStream - abstract classes
+ - This provides basic method for input and output
+ - FileInputStream - FileOutputStream
+ - BufferedInputStream - BufferedOutputStream
+ - ObjectInputStream - ObjectOutputStream
+ - DataInputStream - DataOutputStream
+ 
+ input - read
+ output - write
+ 
+ 
+ Java Standard Streams
+ - System.in   - read the character input from the console
+ - System.out  - writes the character to console
+ - System.err - this will writes the error on the console
+ 
+ 
+ Character Based
+ - Reader and Writer - are abstract classes
+ - have basic method implementation of input and output
+ - FileReader and FileWriter
+ - BufferedReader and BufferedWriter
+ 
+Types of files
+ - binary files   - bytes based 
+ - text files 		- character based
+ - .exe, .jpg, .mp3 ....all are binary files
+ - .txt is text files
+ - binary files can be read by only specific application 
+ - text files can be read by any text editors
+ 
+ 
+ byte - 8 bits 
+ char - 2 bytes -Uni code characters
+ 
+Serialization::
+ - This is the process of writing object to a file.
+ - DeSerialization is reading the object form the file
+ - Any class which implements Serializable interface are allowed for serialization
+ - All primitive type variables can be save to the file
+ - Any reference type variables should be implement the Serializable interface
+ - when you declare a variable as transient, the variable ignored from the 
+ serialization
+
+Marker Interface
+ - It does not have any method declaration, variables
+ - Just like a empty interface
+ - This gives a special instruction to the Java Compiler or JVM, so that these calsses
+can be handled separately. 
+ - Serializable
+ - Clonable
+ - Remote
+ 
+ 
+ 
+ 
+ 

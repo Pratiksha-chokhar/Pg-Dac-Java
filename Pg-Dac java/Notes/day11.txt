@@ -1,0 +1,64 @@
+Comparable								Comparator
+
+ - compareTo (object)					- compare( object1, object2)
+ - natural sorting						- customized sorting
+ - in the class definition				- outside (without class definition)\
+ - Student, Employee, 					- Any class
+ - by default available in Wrapper class	- need to implement for user defined classes
+ - only one sorting technique (natural)		- you can create any number of sorting
+ 
+ home page  - display the students record by rollNo
+ results	- display the students by marks
+ 
+ 
+
+Reflection-
+ 
+ - This is the process which provides way to analyze or examine your class and 
+	its members
+ - Also it provides capabilitis to modify the values of class members
+ - You can access the private members
+ - java.lang.reflect is the package 
+ - Class provides all the methods to get the information about a particular class
+
+Uses
+ - debugger
+ - intellicense
+ - RMI - to generate stub methods
+ 
+Read
+
+ - class information
+ - methods
+ - constructors
+ - fields
+ 
+Class.forName ( "classname with package" )
+Class c = String.class
+
+ 
+Singleton Design Pattern
+ - 
+How to implement
+ - make the constructors as private
+ - create static variable of same class type 
+ - create static method that returns the static reference variable 
+
+ 
+Collections - class, utility class
+Collection - interface, List, Set
+ 
+ 
+ Vector, HashTable are thread safe by default
+ ArrayList, HashSet, TreeSet, HashMap - all are not thread safe
+ 
+ 
+ 
+port http  - 80
+https - 443
+ftp - 21
+
+java.lang.math
+Math.sqrt()
+Math.sin
+ 

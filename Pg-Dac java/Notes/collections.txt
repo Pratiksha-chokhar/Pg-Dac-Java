@@ -1,0 +1,271 @@
+Collections
+
+Collections is a framework
+It helps to store group of elements of same type in a variable
+
+package is - java.util.*
+
+List	-	list of elements
+Set		-	Only unique elements
+Map		- 	key and value pair
+Queue	- 	stores based on certain processing order
+
+
+List - Interface
+ - it stores list of elements
+ - it allows duplicate elements
+ - It is based on the index
+ - Like dynamic array
+ 
+ArrayList - Class
+ - It allows duplicates
+ - It is based on index
+ - Growable array
+ - It maintains the insertion order
+ 
+Operations
+ - add
+ - remove
+ - search
+ - read / iterate / get
+ - size / isEmpty
+ - update / set
+ 
+ArrayList - Methods
+
+ - add( element )
+	inserts the element at the end of the list
+ - add( index, element )
+	inserts the element at the given index, index < size of the list
+ - size()
+	returns the number of elements in the list
+ - isEmpty()
+	returns true if the list is empty, else returns false
+ - get( index )
+	returns the element which available in the particular index , index < size
+	else index >= size -- IndexOutOfBound Exception
+ - iterator()
+	returns the reference of iterator object, this helps to iterate all the 
+	elements one by one
+ - contains ( element )
+	returns true if the element is exist in the list, else returns false
+ - indexOf ( element )	
+	returns index of an element, first occurance of the element (left to right 0 to n)
+	index < size, else returns -1 when the element which is not available in the list
+ - lastIndexOf( element )
+	returns the index of last occurance of the element
+	return -1 if the element is not available
+ - set ( index, element )
+	It updates the element at the given index, index < size
+ - remove ( index )
+	removes the element at the given index, it returns element
+ - remove ( element ) 
+	removes the element, if its removed it returns true, else return false
+ - clear()
+	It removes all elements from the list
+
+
+LinkedList
+----------
+ - Its derived from List Collection
+ - It allows duplicate
+ - It allows null values to insert
+ - It follows index based
+ - It maintains the insertion order
+ - Underlying data structure is Doubly Linked List along with index
+ - So any element is linked to next as well as previous
+ - It provides special iterator called ListIterator
+ 
+
+Set - Interface
+----------------
+ - It allows only unique elements (does not allow duplicate)
+ - It is not based on the index
+ - It does not maintain the insertion order
+ 
+set.add () -- Android, iOS, Mac, Windows
+set.toString {You Can't predict }  (because it doent follow index)
+
+HashSet - Class
+----------------
+ - It allows only unique elements
+ - not based on index
+ - does not maintain the insertion order
+ - It follows hasTable hashCode to store the element
+ 
+ - Add
+ - Search
+ - Remove or clear
+ - update or set
+ - size and empty
+
+
+ Collection Interface
+ Basic Methods
+ - add ( Object )
+ - remove ( Object )
+ - contains ( Object )
+ - size()
+ - isEmpty()
+ - addAll( Collection )
+ - removeAll ( Collection )
+ - iterator()
+ 
+
+LinkedHashSet - Class
+ - It allows only unique elements
+ - It allows only one null to insert
+ - It does not follow index based
+ - It uses hashCode() and Doubly LinkedList to store the elements
+ - It maintains the insertion order
+ 
+SortedSet - Interface
+ - This provides implementation for sorted order
+ - Natural sorting order  - ascending 
+
+NavigableSet - Interface
+ - This provides implementation of navigating between the elements
+
+TreeSet - Class
+ - It allows unique elements (does not allow duplicate)
+ - It does not maintain the insertion order
+ - It stores the element in an sorting order
+ - by default follows the natural sorting order
+ - It follows Red Black Tree data structure
+ - It does not allow any null values
+ 
+Comparable - Interface
+ - To provide natural sorting order you need to implement this interface.
+ - compareTo ( Object o )  
+ compareTo return int 3 type of values
+ 
+ 0 == both objects are same
+ +ve ==  object 1 > object 2
+ -ve ==  object 1 < object 2
+ 
+Comparator - Interface
+ - To customize sorting technique
+ compareTo( Object o1, Object o2) 
+ 
+ - Comparator and Comparable helps to sort the user defined objects
+ - All wrapper classes by default implements Comparable interface
+ String - sort the strings based on alphabetical order
+ Integer - int based on ascending order 1,2,3 ....
+ 
+ 
+						ArrayList			LinkedList
+	
+ data structure			index based			doubly linked list + index based
+ duplicate elements		allowed				allows
+ null values			allowed				allowed
+ insertion order		yes					yes
+ iterator				Iterator			ListIterator , Iterator
+ 
+ 
+						HashSet			LinkedHashSet			TreeSet
+ 
+ data structure			hashCode()		doubly linked list+		Red Black Tree
+										hashCode()
+ duplicate elements		Not allowed		Not Allowed				Not Allowed
+ null values			Only one null	Only one Null			Not Allowed
+ insertion order		Not maintained		Yes					Not maintained
+ iterator				Iterator		Iterator				Iterator
+ Sorting order			Not				Not						Yes
+ 
+ 
+	Iterator						ListIterator
+	
+	All collections					Only LinkedList
+	One directional (next)			Bi directional (next, previous)
+	read, remove					read, remove, add, set
+	c.iterator();					c.listIterator()
+	
+
+
+Map - Interface
+ - 	This stores values as key-value pair
+ - Id does not derived from Collection interface
+ - So it does not have any methods from Collectino interface
+ 
+HashMap - Class
+ - stores values as key-value pair
+ - keys should be unique
+ - but values can be repeated  
+ - keys and values are should be Object type not a primitive
+ - insertion order - does not maintain the insertion order
+ - underlying data structure is HashTable
+ - Only one key can be null
+ - But values may be null in any time
+ 
+ put( key , value )
+ get ( key ) - returns value
+	if the key is not available - null value
+ size()
+ containsKey ( key ) 
+ containsValue ( value )
+ remove ( key )
+ entrySet() - Set<Entry<Key,Value>>
+ entry - (key, value) - each row
+	
+
+LinkedHashMap
+ - underlying data structure doubly linked list and hashtable
+ - It maintains the insertion order
+
+TreeMap
+ - Underlying data structure is Red Black Tree
+ - It does not maintain the insertion order
+ - It stores key-value pair based on natural sorting order of KEYS
+ - It does not allow to insert null keys
+ 
+	
+Assignment Problem
+	
+Use TreeSet to store set of strings. Apply sorting technique to sort the 
+strings by 	the length of the string, if two strings have same length
+sort by alphabetical order
+ 
+Collection				Initial Capacity				Growing Ratio
+ArrayList					10								Half 
+Vector						10								Double
+HashSet						16								3 / 4 								 
+
+
+Generics
+
+ - it allows to store multiple type of elements
+ - using T type parameter
+ - generics supports only Reference Type (Class level)
+ - primitive are not allowed
+ - Use wrapper classes to create primitive generics
+ 
+ T - type parameter
+ commonly used type parameter in java
+ T, E, K, V, N
+ 
+Bounded Type Generics
+ - We can add restrictions to the generic using bounded type argument
+ - only Number class objects
+	<T extends Number>
+	This generic supports only the objects which derived from Number class
+	Any class that should have Number as Parent class
+	Integer, Float, Long subclass of Number
+	String, Date, Student are not derived from Number
+	- Generics provides Strictly strong type checking at compile time
+
+Wild Card   -   ?  
+? - unknown type
+
+ - Upper Bounded Generics Wild Card
+	List<? extends Number?
+	Any class which derived from the super class is allowed 
+ - Lower Bounded Generics Wild Card
+   List< ? super Integer>
+   It supports Integer or its supper class
+
+All Collection supports heterogenous elements except TreeSet and TreeMap
+TreeSet and TreeMap are allows only homogeneous elements
+
+
+   
+

@@ -1,0 +1,196 @@
+Thread - Concurrency
+
+	main(){											main call stack
+		line1;   int a;								line1
+		line2;		int b;							
+		line3; 		scanner.nextInt()
+		add(1,2);	 add(1,2)						addline1
+		line5;			syso()						addlin32
+		link6;			syso()						return
+													line5
+	}
+	
+	public int add(int a,int b){
+		addline1;
+		addline2;
+		addline3
+		return a+b;
+	}
+
+	 - sequence execution
+	 
+Multitasking
+ - Process based multi tasking
+ - multiple process running parallely is called process based mulit tasking
+ - Process - a program in execution
+ - Every process has its own memory space
+ - Every process has its own resources
+ - Any process will have minimum one Thread
+ 
+Thread
+ - Light weight process is called as Thread
+ - A process can have multiple threads
+ - Process should have atleast one Thread to execute the program
+
+Java
+ - JVM handles the execution of your application
+ - By default any java program has one Process and One Thread
+	java Calculator
+	MainThread
+	 - It also called as user Thread
+	 
+	 Daemon Thread
+	 - runs in the background
+	 - It cleans the unused objects (memory cleaning)
+	 - Garbage Collector
+	 - System.gc();
+	 
+	Java supports Multi Threading
+	Java provides all the ways to handle the multiple threads
+
+How to create Thread in Java?  Two ways
+
+ - 	by extending Thread class
+ - by implementing Runnable Interface
+ 
+ By Extending Thread Class
+ - create the instance of the extended class
+ - call thread.start() to start the thread. 
+ 
+ By Implementing Runnable
+  - create the instance of the Runnable
+  - create the instance of Thread class and pass the runnable interface
+  - call the start method with thread instance
+  
+  Methods in Thread Class
+  
+  start()
+  sleep() - static method
+  yield()
+  join()
+  run()
+  
+  Methods in Runnable Interface
+  
+  run()
+ 
+ Thread Name 
+ Thread.currentThread(); - current thread instance Thread
+ getName()					- thread name
+ 
+ 
+ 
+ start()
+  - from this point the thread may start its execution
+  - if you want to run a thread, you have to call start() method on the thread object
+  - this invokes the run() method definition
+  
+ run()
+ - if you call run method, it just runs like normal method, it will create any thread
+ - Thread will not return any value or any result to main program
+ - It executes the code snippet in the run() method and terminate the thread
+
+Thread Life Cycle
+ New
+ -  When you create instance of the Thread class, its moved to New state
+ - At this point the thread is considered as not alive
+ 
+ Runnable
+ - At this state this thread is ready to run
+ - It is eligible to run
+ - Still not yet started its execution
+ 
+ Running
+  - When the thread scheduler selects the thread to execute, its move to running
+  - Means its started executing the run() method
+  
+ Waiting / Blocked state
+  - When you call sleep(), wait() method this thread goes to blocked or waiting state
+  - some time when its done with quantum time, then its move to waiting state
+  
+  Dead / Terminated
+  - When a thread successfully completes its execution, then its move to dead or 
+  terminated state
+  - Some time any thread can be forced to kill, so it moves to dead state
+  
+ Sleep method
+ - It puts the current thread in pause or waiting mode for the specified amount of time
+ 
+ Join Methods
+  - It puts the current thread in Waiting or Blocked state until or unless the
+  specified thread complete its entire execution
+  - when you call t1.join() in the main thread
+  - main thread goes to sleep or waiting state
+  - t1 completes all the execution
+  - main thread gets chance to execute the remaining statements
+	
+  
+Thread Priority
+ - you can set the priority to threads by calling setPriority method
+ - range is 0 to 10 
+ - 5 - normal priority
+ - by default all thread have NORMAL priority
+ 
+Inter Thread Communication
+ - In multi thread environment, more than one thread can try to access the 
+ common shared resources, this leads to data inconsistency is called race condition
+ - When more than one thread can communicate to each other to know about the 
+ status of the shared resources is called ITC
+ 
+  Java uses Synchronization 
+  - Using monitor or lock
+  - Monitors ensures, at a time only one thread will access the shared resources
+  - In java all the objects by default having implementation of monitor or lock
+  
+  Java provides few methods to communicate with other threads
+  - wait()
+  - notify()
+  - notifyAll()
+  - these three methods available in Object class
+  
+ wait()
+  - When you call wait() on the shared object the current thread goes wait indefinitely
+  - It moves to waiting state unless some other threads invokes notify() or notifyAll()
+  on the same shared object
+  
+notify()
+ - This calls the thread which is in waiting state to execution state
+ - If more than one thread is in waiting state, this will awake only one of them 
+ - After awake, the thread will move to exeuction
+ 
+notifyAll()
+  - This method awakes all the thread who all are in the waiting state on the shared 
+ object. But thread scheduler will decide, which thread going to access the shared 
+ object
+  
+synchronized
+ - method level
+ - block level
+	
+	public synchronized void doStuff(){   //method level
+		//code statements
+	}
+ 
+	public void doStuff(){
+		
+		synchronized(lock){   //block level
+			//critical section code statements
+		}
+	
+	}
+ 
+Best approach to create thread
+ - Implements the Runnbale is the best approach
+ - If you extend Thread class, then you can not extend any other classes
+ 
+ 
+DeadLock
+ - When an thread trying to acquire the lock on an object, but that lock is 
+ already acquired by another thread say thread2, But the thread2 is waiting 
+ for the lock on object1.
+ 
+ 
+ Thread 1  lock(object1)   wait for object2
+ 
+ Thread 2   lock(object2)	wait for object1
+ 

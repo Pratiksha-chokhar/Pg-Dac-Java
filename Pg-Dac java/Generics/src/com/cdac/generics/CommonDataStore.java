@@ -1,0 +1,17 @@
+package com.cdac.generics;
+
+public class CommonDataStore {
+	
+	private Object element;
+
+	public Object getElement() {
+		return element;
+	}
+
+	public void setElement(Object element) {
+		this.element = element;
+	}
+	
+	
+
+}
